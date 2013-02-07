@@ -33,3 +33,8 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+
+#bzr
+.bzr/
+.bzrignore
+.directory
