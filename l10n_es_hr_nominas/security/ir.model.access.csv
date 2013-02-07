@@ -1,0 +1,12 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_hr_nomina_employee","hr.nomina","model_hr_nomina","base.group_user",1,0,0,0
+"access_hr_nomina_hr_user","hr.nomina","model_hr_nomina","base.group_hr_user",1,1,1,1
+"access_hr_anticipo_employee","hr.anticipo","model_hr_anticipo","base.group_user",1,0,0,0
+"access_hr_anticipo_hr_user","hr.anticipo","model_hr_anticipo","base.group_hr_user",1,1,1,1
+"access_wizard_crea_nominas_hr_user","wizard.crea.nominas","model_wizard_crea_nominas","base.group_hr_user",1,1,1,1
+"access_wizard_crea_extras_hr_user","wizard.crea.extras","model_wizard_crea_extras","base.group_hr_user",1,1,1,1
+"access_wizard_crea_anticipos_hr_user","wizard.crea.anticipos","model_wizard_crea_anticipos","base.group_hr_user",1,1,1,1
+"access_wizard_pagar_anticipo_hr_user","wizard.pagar.anticipo","model_wizard_pagar_anticipo","base.group_hr_user",1,1,1,1
+"access_wizard_confirmar_anticipo_hr_user","wizard.confirmar.anticipo","model_wizard_confirmar_anticipo","base.group_hr_user",1,1,1,1
+"access_wizard_confirmar_nominas_hr_user","wizard.confirmar.nominas","model_wizard_confirmar_nominas","base.group_hr_user",1,1,1,1
+"access_wizard_pagar_nominas","wizard.pagar.nominas","model_wizard_pagar_nominas","base.group_hr_user",1,1,1,1

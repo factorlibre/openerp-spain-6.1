@@ -49,7 +49,8 @@
                  'hr_nominas_view.xml',
                  'wizard/wizard_crea_nominas_view.xml',
                  'wizard/wizard_pagar_anticipos_view.xml',
-                 'wizard/wizard_pagar_nominas_view.xml',  
+                 'wizard/wizard_pagar_nominas_view.xml',
+                 'security/ir.model.access.csv'  
                   ],
     'demo_xml': [],
     'installable': True,
