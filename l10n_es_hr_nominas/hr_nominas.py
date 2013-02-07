@@ -73,7 +73,7 @@ def get_configuration(cr, uid, ids, context=None):
         return res
     else:
         company_name = str(obj_user.company_id.name)
-        raise osv.except_osv(_('No hay una configuración de cuentas activa para la compañia ') + company_name, _('Debe configurar las cuentas!\nPor favor configure las cuentas en el menú de configuración de la compañia: ') + company_name)
+        raise osv.except_osv(_('No hay una configuración de cuentas activa para la compañia %s') % (company_name), _('Debe configurar las cuentas!\nPor favor configure las cuentas en el menú de configuración de la compañia: %s') % (company_name))
 
 class hr_employee(osv.osv):
     _name = 'hr.employee'
@@ -172,9 +172,9 @@ class hr_nomina(osv.osv):
             else:
                 raise osv.except_osv(_('No existe un periodo para esa fecha de nomina!'), _('No se pueden generar nóminas cuya fecha esté en un periodo que no existe, \nsi desea generarla por favor cree el periodo contable correspondiente.'))
 
-            referencia = str(numero) + ' : ' + str(nom.employee_id.name) + ' - ' + str(fechaNomina)
+            referencia = "%s : %s - %s" % (numero, nom.employee_id.name, fechaNomina)
             if nom.extra:
-                referencia = "Paga Extra: " + str(nom.employee_id.name) + ' - ' + str(fechaNomina)
+                referencia = "Paga Extra: %s - %s" % (nom.employee_id.name, fechaNomina)
             move_val = {
                     'ref': referencia, 
                     'journal_id': journal_id, 
@@ -289,9 +289,9 @@ class hr_nomina(osv.osv):
             if len(period_ids):
                 periodo_id = period_ids[0]
 
-            referencia = nom.numero + ' : Pago ' + nom.employee_id.name + ' - ' + fechaNomina
+            referencia = "%s: Pago %s - %s" % (nom.numero, nom.employee_id.name, fechaNomina)
             if nom.extra:
-                referencia = "Pago de Paga Extra: " + nom.employee_id.name + ' - ' + fechaNomina
+                referencia = "Pago de Paga Extra: %s - %s" % (nom.employee_id.name, fechaNomina)
             move = {'ref': referencia, 'journal_id': journal_id, 'date': fechaNomina, 'period_id': periodo_id}
 
             move_id = account_move_obj.create(cr, uid, move)
@@ -378,7 +378,7 @@ class hr_anticipo(osv.osv):
             period_ids = account_period_obj.search(cr, uid, [('date_start', '<=', fecha_anticipo or time.strftime('%Y-%m-%d')), ('date_stop', '>=', fecha_anticipo or time.strftime('%Y-%m-%d'))])
             if len(period_ids):
                 periodo_id = period_ids[0]
-            referencia = 'Anticipo: ' + anticipo.employee_id.name + ' - ' + fecha_anticipo
+            referencia = "Anticipo: %s - %s" % (anticipo.employee_id.name, fecha_anticipo)
             
             move_val = {
                 'ref': referencia, 
